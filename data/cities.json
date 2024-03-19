@@ -1,0 +1,52 @@
+{
+  "cities": [
+    {
+      "cityName": "Berlin",
+      "country": "Germany",
+      "emoji": "DE",
+      "date": "2027-02-12T09:24:11.863Z",
+      "notes": "Amazing 😃",
+      "position": {
+        "lat": 52.53586782505711,
+        "lng": 13.376933665713324
+      },
+      "id": "98443197"
+    },
+    {
+      "id": "e831",
+      "cityName": "Rome",
+      "country": "Italy",
+      "emoji": "IT",
+      "date": "2024-03-14T12:41:00.815Z",
+      "notes": "",
+      "position": {
+        "lat": "41.88971107104592",
+        "lng": "12.47938119469511"
+      }
+    },
+    {
+      "id": "ebf0",
+      "cityName": "Madrid",
+      "country": "Spain",
+      "emoji": "ES",
+      "date": "2024-03-14T12:59:51.874Z",
+      "notes": "",
+      "position": {
+        "lat": "40.60206938455367",
+        "lng": "-3.670045420239392"
+      }
+    },
+    {
+      "id": "9c68",
+      "cityName": "Venice",
+      "country": "Italy",
+      "emoji": "IT",
+      "date": "2024-03-18T13:52:32.325Z",
+      "notes": "",
+      "position": {
+        "lat": "45.432976039254264",
+        "lng": "12.335193071707298"
+      }
+    }
+  ]
+}

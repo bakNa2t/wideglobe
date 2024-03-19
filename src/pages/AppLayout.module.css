@@ -1,0 +1,7 @@
+.app {
+  height: 100vh;
+  padding: 0.5rem;
+  overscroll-behavior: none;
+  display: flex;
+  position: relative;
+}

@@ -11,13 +11,6 @@ import CountryList from "./components/CountryList";
 import Form from "./components/Form";
 import SpinnerFullPage from "./components/SpinnerFullPage";
 
-// import Mainpage from "./pages/Mainpage";
-// import Product from "./pages/Product";
-// import Pricing from "./pages/Pricing";
-// import Login from "./pages/Login";
-// import PgaeNotFound from "./pages/PgaeNotFound";
-// import AppLayout from "./pages/AppLayout";
-
 const AppLayout = lazy(() => import("./pages/AppLayout"));
 const Mainpage = lazy(() => import("./pages/Mainpage"));
 const Product = lazy(() => import("./pages/Product"));

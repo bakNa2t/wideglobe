@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import PropTypes from "prop-types";
 
 const AuthContext = createContext();
@@ -36,13 +36,24 @@ function AuthProvider({ children }) {
     initialState
   );
 
+  useEffect(function () {
+    const storedAuthInputs = localStorage.getItem("user");
+    if (storedAuthInputs) {
+      const parsedAuthInputs = JSON.parse(storedAuthInputs);
+      dispatch({ type: "login", payload: parsedAuthInputs.user });
+    }
+  }, []);
+
   function login(email, password) {
     if (email === FAKE_USER.email && password === FAKE_USER.password) {
+      const user = FAKE_USER;
+      localStorage.setItem("user", JSON.stringify({ user }));
       dispatch({ type: "login", payload: FAKE_USER });
     }
   }
 
   function logout() {
+    localStorage.removeItem("user");
     dispatch({ type: "logout" });
   }
 

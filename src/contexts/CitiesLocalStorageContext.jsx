@@ -9,7 +9,7 @@ function CitiesLocalStorageProvider({ children }) {
     children: PropTypes.node.isRequired,
   };
 
-  const [cities, setCities] = useLocalStorage("cities", []);
+  const [cities, setCities] = useLocalStorage([], "cities");
   const [currentCity, setCurrentCity] = useState({});
 
   function getCity(id) {
@@ -57,5 +57,3 @@ function useCitiesLocalStorage() {
 }
 
 export { CitiesLocalStorageProvider, useCitiesLocalStorage };
-
-// return useContext(CitiesLocalStorageContext);

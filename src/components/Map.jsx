@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useCities } from "../contexts/CitiesContext";
+// import { useCitiesLocalStorage } from "../contexts/CitiesLocalStorageContext";
 import { useGeolocation } from "../hooks/useGeolocation";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 import {
@@ -15,13 +16,14 @@ import {
 
 import styles from "./Map.module.css";
 
-import PropTypes from "prop-types";
 import Button from "./Button";
 import CountryFlag from "./CountryFlag";
+import PropTypes from "prop-types";
 
 function Map() {
   const [mapPos, setMapPos] = useState([59.326, 18.073]);
   const { cities } = useCities();
+  // const { cities } = useCitiesLocalStorage();
   const {
     isLoading: isLoadingPosition,
     position: geolocationPosition,

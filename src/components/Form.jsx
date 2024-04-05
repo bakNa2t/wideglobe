@@ -1,9 +1,10 @@
 // "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=0&longitude=0"
 
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useUrlPosition } from "../hooks/useUrlPosition";
-import { useCities } from "../contexts/CitiesContext";
+// import { useCities } from "../contexts/CitiesContext";
+import { useCitiesLocalStorage } from "../contexts/CitiesLocalStorageContext";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -17,11 +18,13 @@ import styles from "./Form.module.css";
 const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
 function Form() {
-  // const navigate = useNavigate();
   const [lat, lng] = useUrlPosition();
-  const { createCity, isLoading } = useCities();
-  const navigate = useNavigate();
+  // const { createCity, isLoading } = useCities();
+  const { createCity, getCity, currentCity, updateCity } =
+    useCitiesLocalStorage();
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
+
+  const navigate = useNavigate();
   const [cityName, setCityName] = useState("");
   const [country, setCountry] = useState("");
   const [date, setDate] = useState(new Date());
@@ -29,9 +32,28 @@ function Form() {
   const [emoji, setEmoji] = useState("");
   const [geocodingError, setGeocodingError] = useState("");
 
+  const [searchParams] = useSearchParams();
+  const isInput = searchParams.get("mode") === "input";
+  const isEdit = searchParams.get("mode") === "edit";
+  const id = searchParams.get("id");
+
+  if (!isInput && !isEdit) throw new Error("Invalid form mode");
+
+  function resetForm() {
+    setCityName("");
+    setCountry("");
+    setDate(new Date());
+    setNotes("");
+    setEmoji("");
+  }
+
   useEffect(
     function () {
+      if (!isInput) return;
       if (!lat && !lng) return;
+
+      resetForm();
+
       async function fetchCityData() {
         try {
           setIsLoadingGeocoding(true);
@@ -41,15 +63,14 @@ function Form() {
             `${BASE_URL}?latitude=${lat}&longitude=${lng}`
           );
           const data = await res.json();
-          // console.log(data);
 
           if (!data.countryCode)
             throw new Error(
-              "That doesn't seem to be a city. Click somewhere  else"
+              "That doesn't seem to be a city. Click somewhere else"
             );
 
           setCityName(data.city || data.locality || "");
-          setCountry(data.countryName);
+          setCountry(data.countryName || "");
           setEmoji(data.countryCode);
         } catch (err) {
           setGeocodingError(err.message);
@@ -59,7 +80,24 @@ function Form() {
       }
       fetchCityData();
     },
-    [lat, lng]
+    [isInput, lat, lng]
+  );
+
+  useEffect(
+    function () {
+      if (!isEdit) return;
+      if (!id) return;
+
+      getCity(id);
+
+      const { cityName, country, emoji, date, notes } = currentCity;
+      setCityName(cityName);
+      setCountry(country);
+      setDate(date);
+      setNotes(notes);
+      setEmoji(emoji);
+    },
+    [isEdit, id, getCity, currentCity]
   );
 
   async function handleSubmit(e) {
@@ -75,7 +113,17 @@ function Form() {
       notes,
       position: { lat, lng },
     };
-    await createCity(newCity);
+    // await createCity(newCity);
+    // navigate("/app/cities");
+
+    if (isEdit) {
+      updateCity(id, newCity);
+    }
+    if (isInput) {
+      createCity(newCity);
+    }
+
+    resetForm();
     navigate("/app/cities");
   }
 
@@ -85,7 +133,9 @@ function Form() {
 
   return (
     <form
-      className={`${styles.form} ${isLoading ? styles.loading : ""}`}
+      /*className={`${styles.form} ${isLoading ? styles.loading : ""}`}
+      onSubmit={handleSubmit}*/
+      className={styles.form}
       onSubmit={handleSubmit}
     >
       <div className={styles.row}>
@@ -111,7 +161,7 @@ function Form() {
       </div>
 
       <div className={styles.row}>
-        <label htmlFor="notes">Add notes {cityName}</label>
+        <label htmlFor="notes">Add notes about {cityName}</label>
         <textarea
           id="notes"
           onChange={(e) => setNotes(e.target.value)}
@@ -121,7 +171,11 @@ function Form() {
       </div>
 
       <div className={styles.buttons}>
-        <Button type="primary">Add</Button>
+        {isInput ? (
+          <Button type="primary">Add</Button>
+        ) : (
+          <Button type="primary">Update</Button>
+        )}
         <BackButton />
       </div>
     </form>

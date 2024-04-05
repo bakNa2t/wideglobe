@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
-import styles from "./CityItem.module.css";
-import PropTypes from "prop-types";
-import { useCities } from "../contexts/CitiesContext";
+// import { useCities } from "../contexts/CitiesContext";
+import { useCitiesLocalStorage } from "../contexts/CitiesLocalStorageContext";
+
 import CountryFlag from "./CountryFlag";
+import PropTypes from "prop-types";
+
+import styles from "./CityItem.module.css";
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en-US", {
@@ -16,12 +19,17 @@ function CityItem({ city }) {
     city: PropTypes.object.isRequired,
   };
 
-  const { currentCity, deleteCity } = useCities();
+  // const { currentCity, deleteCity } = useCities();
+  const { currentCity, deleteCity } = useCitiesLocalStorage();
   const { cityName, emoji, date, id, position } = city;
 
-  function handleClick(e) {
+  /*function handleClick(e) {
     e.preventDefault();
     deleteCity(id);
+  }*/
+  async function handleClick(e) {
+    e.preventDefault();
+    await deleteCity(id);
   }
 
   return (

@@ -100,7 +100,7 @@ function Form() {
     [isEdit, id, getCity, currentCity]
   );
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
 
     if (!cityName || !date) return;

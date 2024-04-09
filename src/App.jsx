@@ -1,16 +1,16 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Suspense, lazy } from "react";
 
-import { CitiesProvider } from "./contexts/CitiesContext";
+import { CitiesLocalStorageProvider } from "./contexts/CitiesLocalStorageContext";
 import { AuthProvider } from "./contexts/FakeAuthContext";
 import ProtectedRoute from "./pages/ProtectedRoute";
+// import { CitiesProvider } from "./contexts/CitiesContext";
 
 import CityList from "./components/CityList";
 import City from "./components/City";
 import CountryList from "./components/CountryList";
 import Form from "./components/Form";
 import SpinnerFullPage from "./components/SpinnerFullPage";
-import { CitiesLocalStorageProvider } from "./contexts/CitiesLocalStorageContext";
 
 const AppLayout = lazy(() => import("./pages/AppLayout"));
 const Mainpage = lazy(() => import("./pages/Mainpage"));
@@ -23,34 +23,34 @@ function App() {
   return (
     <AuthProvider>
       <CitiesLocalStorageProvider>
-        <CitiesProvider>
-          <BrowserRouter>
-            <Suspense fallback={<SpinnerFullPage />}>
-              <Routes>
-                <Route index element={<Mainpage />} />
-                <Route path="product" element={<Product />} />
-                <Route path="pricing" element={<Pricing />} />
-                <Route path="login" element={<Login />} />
-                <Route
-                  path="app"
-                  element={
-                    <ProtectedRoute>
-                      {" "}
-                      <AppLayout />
-                    </ProtectedRoute>
-                  }
-                >
-                  <Route index element={<Navigate to="cities" replace />} />
-                  <Route path="cities" element={<CityList />} />
-                  <Route path="cities/:id" element={<City />} />
-                  <Route path="countries" element={<CountryList />} />
-                  <Route path="form" element={<Form />} />
-                </Route>
-                <Route path="*" element={<PgaeNotFound />} />
-              </Routes>
-            </Suspense>
-          </BrowserRouter>
-        </CitiesProvider>
+        {/* <CitiesProvider> */}
+        <BrowserRouter>
+          <Suspense fallback={<SpinnerFullPage />}>
+            <Routes>
+              <Route index element={<Mainpage />} />
+              <Route path="product" element={<Product />} />
+              <Route path="pricing" element={<Pricing />} />
+              <Route path="login" element={<Login />} />
+              <Route
+                path="app"
+                element={
+                  <ProtectedRoute>
+                    {" "}
+                    <AppLayout />
+                  </ProtectedRoute>
+                }
+              >
+                <Route index element={<Navigate to="cities" replace />} />
+                <Route path="cities" element={<CityList />} />
+                <Route path="cities/:id" element={<City />} />
+                <Route path="countries" element={<CountryList />} />
+                <Route path="form" element={<Form />} />
+              </Route>
+              <Route path="*" element={<PgaeNotFound />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+        {/* </CitiesProvider> */}
       </CitiesLocalStorageProvider>
     </AuthProvider>
   );

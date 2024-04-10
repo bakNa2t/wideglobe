@@ -19,7 +19,7 @@ import styles from "./Map.module.css";
 import Button from "./Button";
 import CountryFlag from "./CountryFlag";
 import PropTypes from "prop-types";
-// import Sidebar from "./Sidebar";
+import Sidebar from "./Sidebar";
 
 function Map() {
   const [mapPos, setMapPos] = useState([59.326, 18.073]);
@@ -32,7 +32,7 @@ function Map() {
   } = useGeolocation();
 
   const [mapLat, mapLng] = useUrlPosition();
-  // const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   useEffect(
     function () {
@@ -51,7 +51,10 @@ function Map() {
 
   return (
     <>
-      {/* <Sidebar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen}/> */}
+      <Sidebar
+        isSidebarOpen={isSidebarOpen}
+        setIsSidebarOpen={setIsSidebarOpen}
+      />
       <div className={styles.mapContainer} /*onClick={() => navigate("form")}*/>
         {!geolocationPosition && (
           <Button type="position" onClick={getPosition}>

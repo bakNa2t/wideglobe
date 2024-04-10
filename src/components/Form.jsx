@@ -145,7 +145,7 @@ function Form() {
           onChange={(e) => setCityName(e.target.value)}
           value={cityName}
         />
-        <span className={styles.flag}>
+        <span className={styles["form-flag"]}>
           <CountryFlag emojiFlag={emoji} />
         </span>
       </div>

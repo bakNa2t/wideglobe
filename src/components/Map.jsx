@@ -18,8 +18,9 @@ import styles from "./Map.module.css";
 
 import Button from "./Button";
 import CountryFlag from "./CountryFlag";
-import PropTypes from "prop-types";
 import Sidebar from "./Sidebar";
+
+import PropTypes from "prop-types";
 
 function Map() {
   const [mapPos, setMapPos] = useState([59.326, 18.073]);
@@ -90,6 +91,10 @@ function Map() {
           })}
           <ChangeCenterPos position={mapPos} />
           <DetectClick />
+          <ToggleSidebar
+            isSidebarOpen={isSidebarOpen}
+            setIsSidebarOpen={setIsSidebarOpen}
+          />
         </MapContainer>
       </div>
     </>
@@ -115,6 +120,20 @@ function DetectClick() {
       navigate(`form?mode=input&lat=${e.latlng.lat}&lng=${e.latlng.lng}`);
     },
   });
+}
+
+function ToggleSidebar({ setIsSidebarOpen }) {
+  ToggleSidebar.propTypes = {
+    // isSidebarOpen: PropTypes.bool.isRequired,
+    setIsSidebarOpen: PropTypes.func.isRequired,
+  };
+
+  const handleClick = () => setIsSidebarOpen(true);
+
+  useMapEvents({
+    click: handleClick,
+  });
+  return null;
 }
 
 export default Map;

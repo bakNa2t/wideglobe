@@ -9,7 +9,7 @@ function CountryItem({ country }) {
   };
   return (
     <li className={styles.countryItem}>
-      <span>
+      <span className={styles["countryItem-emojiFlag"]}>
         <CountryFlag emojiFlag={country.emoji} />
       </span>
       <span>

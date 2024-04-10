@@ -40,8 +40,7 @@ function CityItem({ city }) {
         }`}
         to={`${id}?lat=${position.lat}&lng=${position.lng}`}
       >
-        {/* <span className={styles.emoji}>{emoji}</span> */}
-        <span className={styles.emoji}>
+        <span className={styles["cityItem-emojiFlag"]}>
           <CountryFlag emojiFlag={emoji} />
         </span>
         <h3 className={styles.name}>{cityName}</h3>

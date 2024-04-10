@@ -17,3 +17,8 @@
   font-size: 3rem;
   line-height: 1;
 }
+
+.countryItem-emojiFlag {
+  max-height: 3rem;
+  height: 3rem;
+}

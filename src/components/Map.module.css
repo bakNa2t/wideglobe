@@ -35,3 +35,11 @@
 :global(.leaflet-popup-content-wrapper) {
   border-left: 5px solid var(--color-brand--2);
 }
+
+@media (max-width: 42em) {
+  .mapContainer button {
+    left: 2rem;
+    top: 2rem;
+    width: fit-content;
+  }
+}

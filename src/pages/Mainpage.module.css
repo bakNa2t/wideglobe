@@ -9,6 +9,7 @@
   background-size: cover;
   background-position: center;
   padding: 2.5rem 5rem;
+  position: relative;
 }
 
 .main section {
@@ -36,4 +37,20 @@
   font-size: 1.9rem;
   color: var(--color-light--1);
   margin-bottom: 2.5rem;
+}
+
+@media (max-width: 42em) {
+  .main {
+    margin: 0;
+    height: 100vh;
+  }
+  .main section {
+    padding: 2rem;
+  }
+  .main h1 {
+    font-size: 3rem;
+  }
+  .main h2 {
+    font-size: 1rem;
+  }
 }

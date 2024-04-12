@@ -31,8 +31,8 @@
 }
 
 .city h3 span {
-  font-size: 3.2rem;
-  line-height: 1;
+  height: 2.3rem;
+  max-height: 2.3rem;
 }
 
 .city p {

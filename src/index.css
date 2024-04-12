@@ -70,6 +70,15 @@ input:focus {
   font-weight: 600;
   padding: 1rem 3rem;
   border-radius: 5px;
+  transition: all 0.4s ease-in-out;
+}
+
+.cta:link:hover,
+.cta:visited:hover {
+  color: var(--color-brand--1);
+  background-color: var(--color-dark--0);
+  box-shadow: 0 0 1.5rem var(--color-brand--1);
+  transition: all 0.4s ease-in-out;
 }
 
 @media (max-width: 64em) {

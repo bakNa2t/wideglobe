@@ -18,7 +18,7 @@ export default function Mainpage() {
           you have wandered the world.
         </h2>
         <Link to="/login" className="cta">
-          Get started to WideGlobe tracking
+          Let&#39;s started tracking
         </Link>
       </section>
     </main>

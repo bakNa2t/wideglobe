@@ -24,3 +24,10 @@
   flex-direction: column;
   gap: 0.5rem;
 }
+
+@media (max-width: 42em) {
+  .login {
+    margin: 0;
+    height: 100vh;
+  }
+}

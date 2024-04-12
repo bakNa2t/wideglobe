@@ -18,7 +18,7 @@ export default function Product() {
             voluptatem iste.
           </p>
         </div>
-        <img src="img-2.jpg" alt="Shore" />
+        <img src="img-2.jpg" alt="Shore" className={styles.img} />
       </section>
     </main>
   );

@@ -6,7 +6,7 @@ export default function Product() {
     <main className={styles.product}>
       <PageNav />
       <section>
-        <img src="img-1.jpg" alt="Waterfall" />
+        <img src="img-1.jpg" alt="Waterfall" className={styles.img} />
         <div>
           <h2>About WorldWide.</h2>
           <p>

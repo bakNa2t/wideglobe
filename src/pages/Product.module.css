@@ -19,6 +19,11 @@
   width: 100%;
 }
 
+.product .img {
+  border-radius: 5px;
+  box-shadow: 0 0 3px 1px var(--color-brand--2);
+}
+
 .product h2 {
   font-size: 4rem;
   line-height: 1.2;

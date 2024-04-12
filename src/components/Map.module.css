@@ -36,10 +36,41 @@
   border-left: 5px solid var(--color-brand--2);
 }
 
+:global(.leaflet-touch .leaflet-control-attribution) {
+  display: none;
+}
+
 @media (max-width: 42em) {
   .mapContainer button {
     left: 2rem;
     top: 2rem;
     width: fit-content;
+  }
+
+  :global(.leaflet-right) {
+    right: 2rem;
+  }
+
+  :global(.leaflet-bottom) {
+    top: 8rem;
+    bottom: unset;
+  }
+
+  :global(.leaflet-bottom .leaflet-control) {
+    margin-bottom: 0;
+  }
+
+  :global(.leaflet-right .leaflet-control) {
+    margin-right: 0;
+  }
+
+  :global(.leaflet-touch .leaflet-bar a) {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+  }
+
+  :global(.leaflet-touch .leaflet-bar a span) {
+    font-size: 18px;
   }
 }

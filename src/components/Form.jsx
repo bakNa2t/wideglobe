@@ -20,7 +20,7 @@ const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 function Form() {
   const [lat, lng] = useUrlPosition();
   // const { createCity, isLoading } = useCities();
-  const { createCity, getCity, currentCity, updateCity } =
+  const { createCity, getCity, currentCity, editCity } =
     useCitiesLocalStorage();
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
 
@@ -117,7 +117,7 @@ function Form() {
     // navigate("/app/cities");
 
     if (isEdit) {
-      updateCity(id, newCity);
+      editCity(id, newCity);
     }
     if (isInput) {
       createCity(newCity);

@@ -43,3 +43,10 @@
   color: var(--color-dark--1);
   box-shadow: 0 0.4rem 1.2rem rgba(36, 42, 46, 0.16);
 }
+
+.position:hover {
+  background-color: var(--color-dark--0);
+  color: var(--color-brand--1);
+  box-shadow: 0 0 1.5rem var(--color-brand--1);
+  transition: all 0.4s ease-in-out;
+}

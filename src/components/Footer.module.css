@@ -7,6 +7,11 @@
   color: var(--color-light--1);
 }
 
+.copyright strong {
+  color: var(--color-brand--2);
+  text-shadow: 0 0 0.25rem var(--color-brand--1);
+}
+
 @media (max-width: 42em) {
   .footer {
     padding-top: 2rem;

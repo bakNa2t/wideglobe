@@ -29,6 +29,7 @@ html {
 }
 
 body {
+  height: 100vh;
   font-family: "Manrope", sans-serif;
   color: var(--color-light--2);
   font-weight: 400;

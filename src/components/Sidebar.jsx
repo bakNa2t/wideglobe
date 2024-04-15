@@ -9,17 +9,28 @@ import styles from "./Sidebar.module.css";
 
 import PropTypes from "prop-types";
 
-function Sidebar({ isSidebarOpen, setIsSidebarOpen }) {
+function Sidebar({
+  isSidebarOpen,
+  setIsSidebarOpen,
+  isSidebarAbsolute,
+  setIsSidebarAbsolute,
+}) {
   Sidebar.propTypes = {
     isSidebarOpen: PropTypes.bool.isRequired,
+    isSidebarAbsolute: PropTypes.bool.isRequired,
     setIsSidebarOpen: PropTypes.func.isRequired,
+    setIsSidebarAbsolute: PropTypes.func.isRequired,
   };
 
   const navigate = useNavigate();
 
   return (
     <aside className={`${isSidebarOpen ? styles["sidebar-open"] : ""}`}>
-      <div className={styles.sidebar}>
+      <div
+        className={`${styles.sidebar} ${
+          isSidebarAbsolute ? styles["sidebar-absolute"] : ""
+        }`}
+      >
         <Logo />
         <AppNav />
         <Outlet />
@@ -28,6 +39,7 @@ function Sidebar({ isSidebarOpen, setIsSidebarOpen }) {
           className={styles["sidebar-icon"]}
           onClick={() => {
             setIsSidebarOpen(false);
+            setIsSidebarAbsolute(true);
             navigate("/app/cities");
           }}
         >

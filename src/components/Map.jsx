@@ -34,6 +34,7 @@ function Map() {
 
   const [mapLat, mapLng] = useUrlPosition();
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarAbsolute, setIsSidebarAbsolute] = useState(false);
 
   useEffect(
     function () {
@@ -55,8 +56,13 @@ function Map() {
       <Sidebar
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
+        isSidebarAbsolute={isSidebarAbsolute}
+        setIsSidebarAbsolute={setIsSidebarAbsolute}
       />
-      <div className={styles.mapContainer} /*onClick={() => navigate("form")}*/>
+      <div
+        className={styles.mapContainer}
+        /*onClick={() => navigate("form")}*/
+      >
         {!geolocationPosition && (
           <Button type="position" onClick={getPosition}>
             {isLoadingPosition ? "Loading..." : "Get position"}
@@ -95,6 +101,10 @@ function Map() {
             isSidebarOpen={isSidebarOpen}
             setIsSidebarOpen={setIsSidebarOpen}
           />
+          <ToggleSidebarPositionAbsoluteStyle
+            isSidebarAbsolute={isSidebarAbsolute}
+            setIsSidebarAbsolute={setIsSidebarAbsolute}
+          />
         </MapContainer>
       </div>
     </>
@@ -129,6 +139,20 @@ function ToggleSidebar({ setIsSidebarOpen }) {
   };
 
   const handleClick = () => setIsSidebarOpen(true);
+
+  useMapEvents({
+    click: handleClick,
+  });
+  return null;
+}
+
+function ToggleSidebarPositionAbsoluteStyle({ setIsSidebarAbsolute }) {
+  ToggleSidebarPositionAbsoluteStyle.propTypes = {
+    // isSidebarAbsolute: PropTypes.bool.isRequired,
+    setIsSidebarAbsolute: PropTypes.func.isRequired,
+  };
+
+  const handleClick = () => setIsSidebarAbsolute(false);
 
   useMapEvents({
     click: handleClick,

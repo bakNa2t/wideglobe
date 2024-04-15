@@ -15,5 +15,6 @@
 @media (max-width: 42em) {
   .app {
     flex-direction: column-reverse;
+    overflow-y: scroll;
   }
 }

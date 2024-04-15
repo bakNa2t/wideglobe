@@ -4,10 +4,16 @@
   list-style: none;
   overflow-y: hidden;
   overflow-x: hidden;
-  /* overflow-y: scroll; */
+  overflow-y: scroll;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-content: start;
   gap: 1.6rem;
+}
+
+@media (max-width: 42em) {
+  .countryList {
+    height: 40vh;
+  }
 }

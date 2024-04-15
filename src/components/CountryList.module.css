@@ -4,7 +4,6 @@
   list-style: none;
   overflow-y: hidden;
   overflow-x: hidden;
-  overflow-y: scroll;
 
   display: grid;
   grid-template-columns: 1fr 1fr;

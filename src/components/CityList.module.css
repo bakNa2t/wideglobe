@@ -13,3 +13,9 @@
 .cityList::-webkit-scrollbar {
   width: 0;
 }
+
+@media (max-width: 42em) {
+  .cityList {
+    height: 40vh;
+  }
+}

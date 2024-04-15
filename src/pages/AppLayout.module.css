@@ -11,3 +11,9 @@
     padding: 0;
   }
 }
+
+@media (max-width: 42em) {
+  .app {
+    flex-direction: column-reverse;
+  }
+}

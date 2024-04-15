@@ -11,8 +11,8 @@
   gap: 1.6rem;
 }
 
-@media (max-width: 42em) {
+/* @media (max-width: 42em) {
   .countryList {
     height: 40vh;
   }
-}
+} */

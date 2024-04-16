@@ -30,6 +30,11 @@
   margin-bottom: 3rem;
 }
 
+.product h2 em {
+  color: var(--color-brand--2);
+  text-shadow: 0 1px 2px var(--color-brand--1);
+}
+
 .product p {
   font-size: 1.6rem;
   margin-bottom: 2rem;

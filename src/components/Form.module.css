@@ -47,3 +47,20 @@
   font-family: inherit;
   font-size: 1.2rem;
 }
+
+:global(.react-datepicker__navigation) {
+  width: 20px;
+  height: 20px;
+}
+
+:global(.react-datepicker__navigation--next) {
+  right: 6px;
+}
+
+:global(.react-datepicker__navigation--previous) {
+  left: 6px;
+}
+
+:global(.react-datepicker__current-month) {
+  font-size: 1.2rem;
+}

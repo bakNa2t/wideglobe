@@ -7,6 +7,21 @@
   color: var(--color-light--1);
 }
 
+.copyright a {
+  text-decoration: none;
+  display: inline-block;
+  color: var(--color-brand--2);
+  text-shadow: 0 0 0.25rem var(--color-brand--1);
+  transition: all 0.4s ease-in-out;
+}
+
+.copyright a:hover {
+  transform: translateY(-0.2rem);
+  color: var(--color-light--3);
+  text-shadow: 0 0 1rem var(--color-bg--1);
+  transition: all 0.4s ease-in-out;
+}
+
 .copyright strong {
   color: var(--color-brand--2);
   text-shadow: 0 0 0.25rem var(--color-brand--1);

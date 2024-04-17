@@ -19,10 +19,14 @@ function PageNav() {
         <Logo />
         <ul>
           <li>
-            <NavLink to="/product">Product</NavLink>
+            <NavLink to="/product" className={styles["nav-a-hovering"]}>
+              Product
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/pricing">Pricing</NavLink>
+            <NavLink to="/pricing" className={styles["nav-a-hovering"]}>
+              Pricing
+            </NavLink>
           </li>
           <li>
             <NavLink to="/login" className={styles.ctaLink}>

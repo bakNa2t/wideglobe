@@ -29,7 +29,9 @@ function CityItem({ city }) {
   }*/
   async function handleClick(e) {
     e.preventDefault();
-    await deleteCity(id);
+    if (window.confirm("Are you sure, you want to delete city?")) {
+      await deleteCity(id);
+    }
   }
 
   return (

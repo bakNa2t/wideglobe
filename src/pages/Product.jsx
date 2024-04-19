@@ -9,7 +9,7 @@ export default function Product() {
         <img src="img-1.jpg" alt="Waterfall" className={styles.img} />
         <div>
           <h2>
-            About <em>WideGlobe</em>.
+            About <em>WideGlobe</em>
           </h2>
           <p>
             This app allows users to search, mark and track their favorite

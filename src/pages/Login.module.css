@@ -7,13 +7,14 @@
 }
 
 .form {
-  background-color: var(--color-dark--2);
-  border-radius: 7px;
-  padding: 2rem 3rem;
   width: 100%;
+  padding: 2rem 3rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  border-radius: 7px;
+  background-color: var(--color-dark--2);
+  box-shadow: 0 0 1.2rem var(--color-dark--0);
 
   /* Different from other form */
   width: 48rem;

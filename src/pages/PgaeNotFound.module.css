@@ -1,0 +1,19 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+  padding: 2.5rem 5rem;
+  min-height: calc(100vh - 1rem);
+  background-color: var(--color-dark--1);
+}
+
+.main h1 {
+  margin: auto;
+  font-size: 4.5rem;
+}
+
+.main h1 span {
+  font-size: 5.5rem;
+  color: var(--color-brand--1);
+  text-shadow: 0 1px 2px var(--color-brand--1);
+}

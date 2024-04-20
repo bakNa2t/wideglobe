@@ -27,6 +27,13 @@
   gap: 0.5rem;
 }
 
+.login footer {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 @media (max-width: 42em) {
   .login {
     margin: 0;

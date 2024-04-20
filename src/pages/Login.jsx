@@ -6,6 +6,7 @@ import PageNav from "../components/PageNav";
 import Button from "../components/Button";
 
 import styles from "./Login.module.css";
+import Footer from "../components/Footer";
 
 export default function Login() {
   // PRE-FILL FOR DEV PURPOSES
@@ -60,6 +61,7 @@ export default function Login() {
           <Button type="primary">Login</Button>
         </div>
       </form>
+      <Footer />
     </main>
   );
 }

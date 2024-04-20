@@ -39,6 +39,9 @@
     margin: 0;
     height: 100vh;
   }
+  .login footer {
+    width: 183px;
+  }
   .form {
     width: 100%;
   }

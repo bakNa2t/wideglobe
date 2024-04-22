@@ -1,11 +1,17 @@
 .logo-container {
   position: absolute;
-  left: 1rem;
-  top: 3rem;
-  display: block;
-  z-index: 1001;
+  left: 2rem;
+  top: 7rem;
+  display: none;
+  z-index: 9999;
 }
 
 .logo-container .logo {
   height: 3rem;
+}
+
+@media (max-width: 42em) {
+  .logo-container {
+    display: block;
+  }
 }

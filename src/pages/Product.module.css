@@ -37,7 +37,7 @@
 
 .product .product-text {
   font-size: 1.6rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .product section a {
@@ -66,6 +66,8 @@
   .product h2 {
     font-size: 2.5rem;
     text-align: center;
+    line-height: 1.1;
+    margin-bottom: 1rem;
   }
   .product section img {
     width: 65%;

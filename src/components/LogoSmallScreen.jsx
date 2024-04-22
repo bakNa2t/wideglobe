@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import styles from "./LogoSmallScreen.module.css";
 
-function Logo() {
+function LogoSmallScreen() {
   return (
-    <Link to="/">
+    <Link to="/" className={styles["logo-container"]}>
       <img
         src="/logo-small.png"
         alt="WideGlobe logo small"
@@ -13,4 +13,4 @@ function Logo() {
   );
 }
 
-export default Logo;
+export default LogoSmallScreen;

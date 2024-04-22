@@ -1,3 +1,11 @@
-.logo {
+.logo-container {
+  position: absolute;
+  left: 1rem;
+  top: 3rem;
+  display: block;
+  z-index: 1001;
+}
+
+.logo-container .logo {
   height: 3rem;
 }

@@ -19,6 +19,7 @@ import styles from "./Map.module.css";
 import Button from "./Button";
 import CountryFlag from "./CountryFlag";
 import Sidebar from "./Sidebar";
+import LogoSmallScreen from "./LogoSmallScreen";
 
 import PropTypes from "prop-types";
 
@@ -68,6 +69,7 @@ function Map() {
             {isLoadingPosition ? "Loading..." : "Get position"}
           </Button>
         )}
+        <LogoSmallScreen />
         <MapContainer
           center={mapPos}
           zoom={10}

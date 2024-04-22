@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import PageNav from "../components/PageNav";
 import styles from "./Product.module.css";
 
@@ -12,7 +13,7 @@ export default function Product() {
             <br />
             Just $9/month.
           </h2>
-          <p>
+          <p className={styles["product-text"]}>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae vel
             labore mollitia iusto. Recusandae quos provident, laboriosam fugit
             voluptatem iste.
@@ -20,6 +21,7 @@ export default function Product() {
         </div>
         <img src="img-2.jpg" alt="Shore" className={styles.img} />
       </section>
+      <Footer />
     </main>
   );
 }

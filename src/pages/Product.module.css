@@ -35,13 +35,20 @@
   text-shadow: 0 1px 2px var(--color-brand--1);
 }
 
-.product p {
+.product .product-text {
   font-size: 1.6rem;
   margin-bottom: 2rem;
 }
 
 .product section a {
   margin-top: 2rem;
+}
+
+.product footer {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 @media (max-width: 42em) {

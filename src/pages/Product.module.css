@@ -70,4 +70,7 @@
   .product section img {
     width: 65%;
   }
+  .product footer {
+    width: 183px;
+  }
 }
